@@ -4,16 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>core-framework</groupId>
+    <groupId>core.framework</groupId>
     <artifactId>spring-docker-package-maven-plugin</artifactId>
-    <version>1.1.0</version>
+    <version>1.0.0-RELEASE</version>
     <packaging>maven-plugin</packaging>
 
     <distributionManagement>
         <repository>
-            <id>ebinsu-ebin-core-core-framework</id>
-            <name>core-framework</name>
-            <url>https://ebinsu-maven.pkg.coding.net/repository/ebin-core/core-framework/</url>
+            <id>repo-frufq</id>
+            <url>https://packages.aliyun.com/6810844781f0d609ac6a2c51/maven/repo-frufq</url>
         </repository>
     </distributionManagement>
 
