@@ -15,7 +15,6 @@ jobs:
         cache: maven
     - uses: whelk-io/maven-settings-xml-action@v22
       with:
-        githubServer: false
         servers: |
           [{
               "id": "repo-frufq",
