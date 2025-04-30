@@ -63,7 +63,7 @@ jobs:
                   }
               }
           ]
-        pluginRepositories: |
+        plugin_repositories: |
           [
               {
                   "id": "central",
