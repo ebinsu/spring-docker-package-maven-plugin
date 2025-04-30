@@ -12,7 +12,6 @@ jobs:
       with:
         java-version: 11
         distribution: 'temurin'
-        server-id: 'repo-frufq'
         cache: maven
     - uses: whelk-io/maven-settings-xml-action@v22
       with:
@@ -22,35 +21,8 @@ jobs:
               "username": "${{ secrets.MAVEN_USERNAME }}",
               "password": "${{ secrets.MAVEN_PASSWORD }}"
           }]
-        mirrors: |
-          [{
-              "id": "mirror",
-              "name": "mirror",
-              "mirrorOf": "central,jcenter,!repo-frufq",
-              "url": "https://maven.aliyun.com/nexus/content/groups/public"
-          }]
         repositories: |
           [
-              {
-                  "id": "central",
-                  "url": "https://maven.aliyun.com/nexus/content/groups/public",
-                  "releases": {
-                      "enabled": true
-                  },
-                  "snapshots": {
-                      "enabled": false
-                  }
-              },
-              {
-                  "id": "snapshots",
-                  "url": "https://maven.aliyun.com/nexus/content/groups/public",
-                  "releases": {
-                      "enabled": false
-                  },
-                  "snapshots": {
-                      "enabled": true
-                  }
-              },
               {
                   "id": "repo-frufq",
                   "name": "https://packages.aliyun.com/6810844781f0d609ac6a2c51/maven/repo-frufq",
@@ -65,26 +37,6 @@ jobs:
           ]
         plugin_repositories: |
           [
-              {
-                  "id": "central",
-                  "url": "https://maven.aliyun.com/nexus/content/groups/public",
-                  "releases": {
-                      "enabled": true
-                  },
-                  "snapshots": {
-                      "enabled": false
-                  }
-              },
-              {
-                  "id": "snapshots",
-                  "url": "https://maven.aliyun.com/nexus/content/groups/public",
-                  "releases": {
-                      "enabled": false
-                  },
-                  "snapshots": {
-                      "enabled": true
-                  }
-              },
               {
                   "id": "repo-frufq",
                   "url": "https://packages.aliyun.com/6810844781f0d609ac6a2c51/maven/repo-frufq",
