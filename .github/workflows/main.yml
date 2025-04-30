@@ -3,18 +3,8 @@ on:
     branches: [ "develop" ]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: Set up JDK
-      uses: actions/setup-java@v3
-      with:
-        java-version: 11
-        distribution: 'temurin'
-        cache: maven
-    - uses: ebinsu/aliyun-action-templates/.github/workflows/maven-repo-setting.yml@main
-      secrets: inherit
-    - name: Build with Maven
-      run:
-        mvn deploy
+  build-plugin:
+    uses: ebinsu/aliyun-action-templates/.github/workflows/maven-deploy-env.yml@main
+    with:
+      jdk: 11
+    secrets: inherit
