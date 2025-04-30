@@ -12,6 +12,7 @@ jobs:
       with:
         java-version: 11
         distribution: 'temurin'
+        overwrite-settings: false
         cache: maven
     - uses: whelk-io/maven-settings-xml-action@v22
       with:
@@ -109,11 +110,10 @@ jobs:
                   }
               }
           ]
-        output_file: .m2/settings.xml
 
     - name: test
       run: |
-        cat .m2/settings.xml
+        cat ~/.m2/settings.xml
         
     
     # - name: Build with Maven
