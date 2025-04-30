@@ -16,20 +16,20 @@ jobs:
     - uses: whelk-io/maven-settings-xml-action@v22
       with:
         githubServer: false
-        servers: >
+        servers: |
           [{
               "id": "repo-frufq",
               "username": "${{ secrets.MAVEN_USERNAME }}",
               "password": "${{ secrets.MAVEN_PASSWORD }}"
           }]
-        mirrors: >
+        mirrors: |
           [{
               "id": "mirror",
               "name": "mirror",
               "mirrorOf": "central,jcenter,!repo-frufq",
               "url": "https://maven.aliyun.com/nexus/content/groups/public"
           }]
-        repositories: >
+        repositories: |
           [
               {
                   "id": "central",
@@ -63,7 +63,7 @@ jobs:
                   }
               }
           ]
-        pluginRepositories: >
+        pluginRepositories: |
           [
               {
                   "id": "central",
@@ -96,11 +96,11 @@ jobs:
                   }
               }
           ]
-        active_profiles: >
+        active_profiles: |
           [
             "rdc"
           ]
-        profiles: >
+        profiles: |
           [
               {
                   "id": "rdc",
@@ -111,6 +111,7 @@ jobs:
               }
           ]
         output_file: .m2/settings.xml
+
     - name: test
       run: |
         cat .m2/settings.xml
