@@ -13,56 +13,8 @@ jobs:
         java-version: 11
         distribution: 'temurin'
         cache: maven
-    - uses: whelk-io/maven-settings-xml-action@v22
-      with:
-        servers: |
-          [{
-              "id": "repo-frufq",
-              "username": "${{ secrets.MAVEN_USERNAME }}",
-              "password": "${{ secrets.MAVEN_PASSWORD }}"
-          }]
-        repositories: |
-          [
-              {
-                  "id": "repo-frufq",
-                  "name": "https://packages.aliyun.com/6810844781f0d609ac6a2c51/maven/repo-frufq",
-                  "url": "url",
-                  "releases": {
-                      "enabled": true
-                  },
-                  "snapshots": {
-                      "enabled": true
-                  }
-              }
-          ]
-        plugin_repositories: |
-          [
-              {
-                  "id": "repo-frufq",
-                  "url": "https://packages.aliyun.com/6810844781f0d609ac6a2c51/maven/repo-frufq",
-                  "releases": {
-                      "enabled": true
-                  },
-                  "snapshots": {
-                      "enabled": true
-                  }
-              }
-          ]
-        active_profiles: |
-          [
-            "rdc"
-          ]
-        profiles: |
-          [
-              {
-                  "id": "rdc",
-                  "properties": {
-                      "altReleaseDeploymentRepository": "repo-frufq::default::https://packages.aliyun.com/6810844781f0d609ac6a2c51/maven/repo-frufq",
-                      "altSnapshotDeploymentRepository": "repo-frufq::default::https://packages.aliyun.com/6810844781f0d609ac6a2c51/maven/repo-frufq"
-                  }
-              }
-          ]
-
+    - uses: ebinsu/aliyun-action-templates/.github/workflows/maven-repo-setting.yml@main
+      secrets: inherit
     - name: Build with Maven
       run:
         mvn deploy
