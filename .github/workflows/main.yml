@@ -111,11 +111,6 @@ jobs:
               }
           ]
 
-    - name: test
-      run: |
-        cat ~/.m2/settings.xml
-        
-    
-    # - name: Build with Maven
-    #   run:
-    #     mvn deploy
+    - name: Build with Maven
+      run:
+        mvn deploy
